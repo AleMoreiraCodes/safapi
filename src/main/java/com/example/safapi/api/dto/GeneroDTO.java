@@ -1,5 +1,4 @@
 package com.example.safapi.api.dto;
-
 import com.example.safapi.model.entity.Genero;
 import lombok.AllArgsConstructor;
 import lombok.Data;

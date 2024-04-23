@@ -1,5 +1,4 @@
 package com.example.safapi.api.dto;
-
 import com.example.safapi.model.entity.Diretor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +20,6 @@ public class DiretorDTO {
     public static DiretorDTO create(Diretor diretor) {
         ModelMapper modelMapper = new ModelMapper();
         DiretorDTO dto = modelMapper.map(diretor, DiretorDTO.class);
-        dto.dataInicioCarreira = diretor.getDataInicioCarreira();
         return dto;
     }
 }

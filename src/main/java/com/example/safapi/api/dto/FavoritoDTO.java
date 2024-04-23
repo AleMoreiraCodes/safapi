@@ -1,5 +1,4 @@
 package com.example.safapi.api.dto;
-
 import com.example.safapi.model.entity.Favorito;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,8 +17,6 @@ public class FavoritoDTO {
     public static FavoritoDTO create(Favorito favorito) {
         ModelMapper modelMapper = new ModelMapper();
         FavoritoDTO dto = modelMapper.map(favorito, FavoritoDTO.class);
-        dto.idUsuario = favorito.getUsuario().getId();
-        dto.idFilme = favorito.getFilme().getId();
         return dto;
     }
 }

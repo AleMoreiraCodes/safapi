@@ -1,5 +1,4 @@
 package com.example.safapi.api.dto;
-
 import com.example.safapi.model.entity.FilmeGenero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,8 +17,6 @@ public class FilmeGeneroDTO {
     public static FilmeGeneroDTO create(FilmeGenero filmeGenero) {
         ModelMapper modelMapper = new ModelMapper();
         FilmeGeneroDTO dto = modelMapper.map(filmeGenero, FilmeGeneroDTO.class);
-        dto.idGenero = filmeGenero.getGenero().getId();
-        dto.idFilme = filmeGenero.getFilme().getId();
         return dto;
     }
 }
