@@ -80,6 +80,4 @@ public class AtorController {
         Ator ator = modelMapper.map(dto, Ator.class);
         return ator;
     }
-
-
 }

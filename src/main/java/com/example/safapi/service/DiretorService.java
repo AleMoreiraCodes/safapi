@@ -18,7 +18,7 @@ public class DiretorService {
         this.repository = repository;
     }
 
-    public List<Diretor> getDiretor() {
+    public List<Diretor> getDiretores() {
         return repository.findAll();
     }
 
