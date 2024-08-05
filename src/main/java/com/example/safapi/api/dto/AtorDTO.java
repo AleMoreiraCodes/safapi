@@ -14,6 +14,7 @@ public class AtorDTO {
     private String nome;
     private Date dataNascimento;
     private Date dataInicioCarreira;
+    private String nacionalidade;
 
     public static AtorDTO create(Ator ator) {
         ModelMapper modelMapper = new ModelMapper();

@@ -16,6 +16,7 @@ public class DiretorDTO {
     private String nome;
     private Date dataNascimento;
     private Date dataInicioCarreira;
+    private String nacionalidade;
 
     public static DiretorDTO create(Diretor diretor) {
         ModelMapper modelMapper = new ModelMapper();
