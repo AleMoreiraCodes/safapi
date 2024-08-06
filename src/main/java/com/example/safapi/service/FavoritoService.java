@@ -2,14 +2,15 @@ package com.example.safapi.service;
 
 import com.example.safapi.exception.RegraNegocioException;
 import com.example.safapi.model.entity.Favorito;
-import com.example.safapi.model.entity.FilmeGenero;
 import com.example.safapi.model.repository.FavoritoRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Service
 public class FavoritoService {
     private FavoritoRepository repository;
 

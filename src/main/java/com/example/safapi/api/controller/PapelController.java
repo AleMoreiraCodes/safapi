@@ -71,7 +71,7 @@ public class PapelController {
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Papel> papel = service.getPapelById(id);
         if (!papel.isPresent()) {
-            return new ResponseEntity("Papel Complementar não encontrada", HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Papel não encontrada", HttpStatus.NOT_FOUND);
         }
         try {
             service.excluir(papel.get());
