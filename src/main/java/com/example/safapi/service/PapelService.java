@@ -18,7 +18,7 @@ public class PapelService {
         this.repository = repository;
     }
 
-    public List<Papel> getPapels() {
+    public List<Papel> getPapeis() {
         return repository.findAll();
     }
 
