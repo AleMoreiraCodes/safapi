@@ -2,7 +2,6 @@ package com.example.safapi.service;
 
 import com.example.safapi.exception.RegraNegocioException;
 import com.example.safapi.model.entity.Direcao;
-import com.example.safapi.model.entity.FilmeGenero;
 import com.example.safapi.model.repository.DirecaoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

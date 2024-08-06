@@ -93,11 +93,11 @@ public class PapelController {
             }
         }
         if (dto.getIdFilme() != null) {
-            Optional<Filme> categoria = filmeService.getFilmeById(dto.getIdFilme());
-            if (!categoria.isPresent()) {
+            Optional<Filme> filme = filmeService.getFilmeById(dto.getIdFilme());
+            if (!filme.isPresent()) {
                 papel.setFilme(null);
             } else {
-                papel.setFilme(categoria.get());
+                papel.setFilme(filme.get());
             }
         }
         return papel;

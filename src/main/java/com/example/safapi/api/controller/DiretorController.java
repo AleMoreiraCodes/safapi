@@ -63,12 +63,12 @@ public class DiretorController {
 
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
-        Optional<Diretor> ator = service.getDiretorById(id);
-        if (!ator.isPresent()) {
+        Optional<Diretor> diretor = service.getDiretorById(id);
+        if (!diretor.isPresent()) {
             return new ResponseEntity("Diretor não encontrado", HttpStatus.NOT_FOUND);
         }
         try {
-            service.excluir(ator.get());
+            service.excluir(diretor.get());
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

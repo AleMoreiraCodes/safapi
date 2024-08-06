@@ -86,19 +86,19 @@ public class FavoritoController {
         ModelMapper modelMapper = new ModelMapper();
         Favorito favorito = modelMapper.map(dto, Favorito.class);
         if (dto.getIdUsuario() != null) {
-            Optional<Usuario> ator = usuarioService.getUsuarioById(dto.getIdUsuario());
-            if (!ator.isPresent()) {
+            Optional<Usuario> usuario = usuarioService.getUsuarioById(dto.getIdUsuario());
+            if (!usuario.isPresent()) {
                 favorito.setUsuario(null);
             } else {
-                favorito.setUsuario(ator.get());
+                favorito.setUsuario(usuario.get());
             }
         }
         if (dto.getIdFilme() != null) {
-            Optional<Filme> categoria = filmeService.getFilmeById(dto.getIdFilme());
-            if (!categoria.isPresent()) {
+            Optional<Filme> filme = filmeService.getFilmeById(dto.getIdFilme());
+            if (!filme.isPresent()) {
                 favorito.setFilme(null);
             } else {
-                favorito.setFilme(categoria.get());
+                favorito.setFilme(filme.get());
             }
         }
         return favorito;

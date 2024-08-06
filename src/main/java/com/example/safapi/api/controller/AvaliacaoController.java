@@ -1,7 +1,6 @@
 package com.example.safapi.api.controller;
 
 import com.example.safapi.api.dto.AvaliacaoDTO;
-import com.example.safapi.api.dto.FavoritoDTO;
 import com.example.safapi.model.entity.Avaliacao;
 import com.example.safapi.model.entity.Filme;
 import com.example.safapi.model.entity.Usuario;
@@ -44,7 +43,7 @@ public class AvaliacaoController {
     }
 
     @PostMapping()
-    public ResponseEntity post(@RequestBody FavoritoDTO dto) {
+    public ResponseEntity post(@RequestBody AvaliacaoDTO dto) {
         try {
             Avaliacao avaliacao = converter(dto);
             avaliacao = service.salvar(avaliacao);
@@ -55,7 +54,7 @@ public class AvaliacaoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody FavoritoDTO dto) {
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody AvaliacaoDTO dto) {
         if (!service.getAvaliacaoById(id).isPresent()) {
             return new ResponseEntity("Avaliação não encontrada", HttpStatus.NOT_FOUND);
         }
@@ -83,23 +82,23 @@ public class AvaliacaoController {
         }
     }
 
-    public Avaliacao converter(FavoritoDTO dto) {
+    public Avaliacao converter(AvaliacaoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Avaliacao avaliacao = modelMapper.map(dto, Avaliacao.class);
         if (dto.getIdUsuario() != null) {
-            Optional<Usuario> ator = usuarioService.getUsuarioById(dto.getIdUsuario());
-            if (!ator.isPresent()) {
+            Optional<Usuario> usuario = usuarioService.getUsuarioById(dto.getIdUsuario());
+            if (!usuario.isPresent()) {
                 avaliacao.setUsuario(null);
             } else {
-                avaliacao.setUsuario(ator.get());
+                avaliacao.setUsuario(usuario.get());
             }
         }
         if (dto.getIdFilme() != null) {
-            Optional<Filme> categoria = filmeService.getFilmeById(dto.getIdFilme());
-            if (!categoria.isPresent()) {
+            Optional<Filme> filme = filmeService.getFilmeById(dto.getIdFilme());
+            if (!filme.isPresent()) {
                 avaliacao.setFilme(null);
             } else {
-                avaliacao.setFilme(categoria.get());
+                avaliacao.setFilme(filme.get());
             }
         }
         return avaliacao;
