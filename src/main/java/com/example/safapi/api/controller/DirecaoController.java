@@ -28,8 +28,8 @@ public class DirecaoController {
 
     @GetMapping()
     public ResponseEntity get() {
-        List<Direcao> direcao = service.getDirecoes();
-        return ResponseEntity.ok(direcao.stream().map(DirecaoDTO::create).collect(Collectors.toList()));
+        List<Direcao> direcoes = service.getDirecoes();
+        return ResponseEntity.ok(direcoes.stream().map(DirecaoDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")

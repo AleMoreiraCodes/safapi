@@ -22,8 +22,8 @@ public class UsuarioController {
 
     @GetMapping()
     public ResponseEntity get() {
-        List<Usuario> estudio = service.getUsuarios();
-        return ResponseEntity.ok(estudio.stream().map(UsuarioDTO::create).collect(Collectors.toList()));
+        List<Usuario> usuarios = service.getUsuarios();
+        return ResponseEntity.ok(usuarios.stream().map(UsuarioDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")

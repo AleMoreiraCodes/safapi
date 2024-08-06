@@ -22,8 +22,8 @@ public class GeneroController {
 
     @GetMapping()
     public ResponseEntity get() {
-        List<Genero> genero = service.getGeneros();
-        return ResponseEntity.ok(genero.stream().map(GeneroDTO::create).collect(Collectors.toList()));
+        List<Genero> generos = service.getGeneros();
+        return ResponseEntity.ok(generos.stream().map(GeneroDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")

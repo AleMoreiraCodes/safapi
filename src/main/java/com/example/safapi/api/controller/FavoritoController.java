@@ -29,8 +29,8 @@ public class FavoritoController {
 
     @GetMapping()
     public ResponseEntity get() {
-        List<Favorito> favorito = service.getFavoritos();
-        return ResponseEntity.ok(favorito.stream().map(FavoritoDTO::create).collect(Collectors.toList()));
+        List<Favorito> favoritos = service.getFavoritos();
+        return ResponseEntity.ok(favoritos.stream().map(FavoritoDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")

@@ -28,8 +28,8 @@ public class PapelController {
 
     @GetMapping()
     public ResponseEntity get() {
-        List<Papel> atividadeComplementares = service.getPapeis();
-        return ResponseEntity.ok(atividadeComplementares.stream().map(PapelDTO::create).collect(Collectors.toList()));
+        List<Papel> papeis = service.getPapeis();
+        return ResponseEntity.ok(papeis.stream().map(PapelDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")

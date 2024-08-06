@@ -22,8 +22,8 @@ public class EstudioController {
 
     @GetMapping()
     public ResponseEntity get() {
-        List<Estudio> estudio = service.getEstudios();
-        return ResponseEntity.ok(estudio.stream().map(EstudioDTO::create).collect(Collectors.toList()));
+        List<Estudio> estudios = service.getEstudios();
+        return ResponseEntity.ok(estudios.stream().map(EstudioDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")
