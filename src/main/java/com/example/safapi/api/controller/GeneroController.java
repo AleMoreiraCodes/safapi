@@ -1,5 +1,4 @@
 package com.example.safapi.api.controller;
-import com.example.safapi.api.dto.EstudioDTO;
 import com.example.safapi.api.dto.GeneroDTO;
 import com.example.safapi.model.entity.Genero;
 import com.example.safapi.exception.RegraNegocioException;
@@ -37,7 +36,7 @@ public class GeneroController {
     }
 
     @PostMapping()
-    public ResponseEntity post(@RequestBody EstudioDTO dto) {
+    public ResponseEntity post(@RequestBody GeneroDTO dto) {
         try {
             Genero genero = converter(dto);
             genero = service.salvar(genero);
@@ -48,7 +47,7 @@ public class GeneroController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody EstudioDTO dto) {
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody GeneroDTO dto) {
         if (!service.getGeneroById(id).isPresent()) {
             return new ResponseEntity("Gênero não encontrado", HttpStatus.NOT_FOUND);
         }
@@ -76,7 +75,7 @@ public class GeneroController {
         }
     }
 
-    private Genero converter(EstudioDTO dto) {
+    private Genero converter(GeneroDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Genero genero = modelMapper.map(dto, Genero.class);
         return genero;
