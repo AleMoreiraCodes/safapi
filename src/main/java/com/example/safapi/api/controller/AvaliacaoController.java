@@ -29,8 +29,8 @@ public class AvaliacaoController {
 
     @GetMapping()
     public ResponseEntity get() {
-        List<Avaliacao> avaliacao = service.getAvaliacoes();
-        return ResponseEntity.ok(avaliacao.stream().map(AvaliacaoDTO::create).collect(Collectors.toList()));
+        List<Avaliacao> avaliacoes = service.getAvaliacoes();
+        return ResponseEntity.ok(avaliacoes.stream().map(AvaliacaoDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")
@@ -70,12 +70,12 @@ public class AvaliacaoController {
 
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
-        Optional<Avaliacao> favorito = service.getAvaliacaoById(id);
-        if (!favorito.isPresent()) {
+        Optional<Avaliacao> avaliacao = service.getAvaliacaoById(id);
+        if (!avaliacao.isPresent()) {
             return new ResponseEntity("Avaliação não encontrada", HttpStatus.NOT_FOUND);
         }
         try {
-            service.excluir(favorito.get());
+            service.excluir(avaliacao.get());
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
